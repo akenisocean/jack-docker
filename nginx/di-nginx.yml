@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  di-nginx:
+    image: jkstack/nginx:1.19.5-alpine
+    logging:
+      # 日志方式使用默认json-filefile
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "2"
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./di.conf:/etc/nginx/site-enabled/di.conf
