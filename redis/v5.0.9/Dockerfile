@@ -1,5 +1,4 @@
-
-FROM xuxueli/xxl-job-admin:2.2.0
+FROM redis:5.0.9
 MAINTAINER chao <jichao@jingkunsystem.com>
 # 安装所需要的依赖
 RUN set -eux; \
