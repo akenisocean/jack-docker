@@ -1,5 +1,5 @@
 ### 基础镜像
-FROM java:8-jdk-alpine
+FROM jharbor.jkservice.org/di/openjdk:8-jdk-alpine
 
 #作者
 MAINTAINER jackchao <jichao@jingkunsystem.com>
@@ -15,15 +15,6 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 \
     JVM_MMS=320m \
     NACOS_DEBUG=n \
     NACOS_FILE_NAME=nacos-server-1.3.2.tar.gz
-
-
-# 安装程序需要的依赖软件，使用阿里云的镜像仓库加速
-RUN echo "http://mirrors.aliyun.com/alpine/v3.9/main" > /etc/apk/repositories \
-    && echo "http://mirrors.aliyun.com/alpine/v3.9/community" >> /etc/apk/repositories \
-    && apk update upgrade \
-    && apk add --no-cache procps unzip curl bash tzdata busybox-extras vim \
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone
 
 
 # 创建目录
