@@ -1,7 +1,0 @@
-#!/bin/sh
-
-echo "Starting nacos" && \
-     cd $PWD/nacos/bin && \
-     ./startup.sh -m standalone && \
-     cd ../logs && \
-     tail -f start.out 

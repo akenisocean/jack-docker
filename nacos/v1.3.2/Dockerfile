@@ -1,5 +1,5 @@
 ### 基础镜像
-FROM jharbor.jkservice.org/di/openjdk:8-jdk-alpine
+FROM harbor.jkservice.org/di/openjdk:8-jdk-alpine
 
 #作者
 MAINTAINER jackchao <jichao@jingkunsystem.com>
@@ -23,7 +23,7 @@ RUN mkdir -p $BASE_DIR
 # 拷贝文件
 COPY ./$NACOS_FILE_NAME $BASE_DIR
 
-COPY ./docker-startup.sh /bin/docker-startup.sh
+COPY docker-startup.sh /bin/docker-startup.sh
 
 # 设置工作目录
 WORKDIR $BASE_DIR
