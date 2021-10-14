@@ -2,7 +2,7 @@ version: "3.7"
 services:
    jenkins2.60.3:
      #image: jenkins/jenkins:2.263.1-lts-centos7
-     image: jkstack-jenkins:1.0.0
+     image: jkstack-jenkins:2.60.3
      restart: always
      container_name: jenkins2.60.3
      ports:
