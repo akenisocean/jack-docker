@@ -1,5 +1,5 @@
-FROM openjdk:8-jdk-alpine
-MAINTAINER chao <jichao@jkstack.com>
+FROM harbor.jkservice.org/commons/jkstack-base:java
+MAINTAINER chao <jichao@jingkunsystem.com>
 
 # 设置环境变量
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 \
@@ -12,10 +12,7 @@ COPY --from=hengyunabc/arthas:3.5.0-no-jdk /opt/arthas /opt/arthas
 RUN echo "http://mirrors.aliyun.com/alpine/v3.9/main" > /etc/apk/repositories \
     && echo "http://mirrors.aliyun.com/alpine/v3.9/community" >> /etc/apk/repositories \
     && apk update upgrade \
-    && apk add --no-cache procps unzip curl bash tzdata busybox-extras vim wget font-adobe-100dpi ttf-dejavu fontconfig \
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone \
+    && apk add --no-cache procps unzip curl bash busybox-extras vim wget font-adobe-100dpi ttf-dejavu fontconfig \
     && curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-static-amd64 -o /bin/tini \
     && chmod +x /bin/tini \
     && echo "$TINI_SHA  /bin/tini" | sha256sum -c - && echo "依赖安装完毕"
-
