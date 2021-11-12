@@ -1,0 +1,12 @@
+FROM docker.elastic.co/elasticsearch/elasticsearch:7.14.2
+MAINTAINER chao <jichao@jkstack.com>
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+# 拷贝证书，集群方式进行通讯时候需要该证书
+COPY elastic-certificates.p12 /usr/share/elasticsearch/config/elastic-certificates.p12
+
+RUN chmod 777 -R /usr/share/elasticsearch/{config,logs,data} && chmod 775 /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+CMD ["/usr/share/elasticsearch/bin/elasticsearch"]
