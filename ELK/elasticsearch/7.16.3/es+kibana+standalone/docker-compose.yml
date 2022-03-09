@@ -24,7 +24,7 @@ services:
       - ELASTICSEARCH_PASSWORD=123qweASD
   jk-di-es1:
     hostname: jk-di-es1
-    image: harbor.jkservice.org/di/security-elasticsearch:7.16.2
+    image: harbor.jkservice.org/di/security-elasticsearch:7.16.3
     container_name: jk-di-es1
 #    user: "0:0"
     ports:

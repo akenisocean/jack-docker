@@ -55,7 +55,7 @@ services:
       - xpack.ml.enabled=false
   jk-di-es2:
     hostname: jk-di-es2
-    image: harbor.jkservice.org/di/security-elasticsearch:7.14.2
+    image: harbor.jkservice.org/di/security-elasticsearch:7.16.3
     container_name: jk-di-es2
     #    user: "0:0"
    # ports:
@@ -108,7 +108,7 @@ services:
       - xpack.ml.enabled=false
   jk-di-es3:
     hostname: jk-di-es3
-    image: jharbor.jkservice.org/di/security-elasticsearch:7.14.2
+    image: jharbor.jkservice.org/di/security-elasticsearch:7.16.3
     container_name: jk-di-es3
     #    user: "0:0"
    # ports:
