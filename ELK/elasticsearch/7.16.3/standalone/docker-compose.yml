@@ -45,6 +45,8 @@ services:
       - node.data=true
       - node.ml=false
       - xpack.ml.enabled=false
+      # 设置快照备份的本地仓库位置
+      - path.repo=/usr/share/elasticsearch/backup
 
 networks:
   devops-compose:
