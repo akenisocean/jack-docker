@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:22.3.4.20-alpine
+    hostname: clickhouse
+    container_name: clickhouse
+    privileged: true
+    user: root
+    ports:
+      - "18123:8123"
+      - "19000:9000"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - clickhouse-log:/var/log/clickhouse-server/
+    networks:
+      - devops-compose
+    environment:
+      - CLICKHOUSE_DB=jk_di_database
+      - CLICKHOUSE_USER=root
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+      - CLICKHOUSE_PASSWORD=123qweASD
+
+
+networks:
+  devops-compose:
+    external: true
+
+
+volumes:
+  clickhouse-data:
+  clickhouse-log:
