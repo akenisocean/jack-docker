@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  sftp:
+    image: atmoz/sftp
+    volumes:
+     # - <host-dir>/upload:/home/foo/upload
+      - sftp-upload:/home/foo/upload
+    ports:
+      - "2222:22"
+    command: jack:123qweASD:1001
+
+
+networks:
+  devops-compose:
+    external: true
+
+volumes:
+  sftp-upload:
+
